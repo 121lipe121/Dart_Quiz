@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "546122601793",
+    "project_id": "dart-quiz-4ad0c",
+    "storage_bucket": "dart-quiz-4ad0c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:546122601793:android:aef381e322119399577dc0",
+        "android_client_info": {
+          "package_name": "com.example.dart_quiz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbaEykgFd9WEmVFPuPed-8c3kgZBmAwoY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
