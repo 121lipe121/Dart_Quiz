@@ -4,12 +4,18 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'menu.dart'; // Importando o arquivo menu.dart
 import 'temas.dart'; // Importando o arquivo temas.dart
+import 'quiz.dart';
+import 'package:flutter_gemini/flutter_gemini.dart'; // Importando o pacote flutter_gemini
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  // Inicializar Gemini
+  Gemini.init(apiKey: 'AIzaSyBl6_Mr_IMMc7HbyCxbusAmkxYcZ8fgefU');
+
   runApp(const MyApp());
 }
 
@@ -23,10 +29,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: QuizScreen(),
+      home: const Menu(),
       routes: {
         '/temas': (context) => const TemasScreen(), // Definindo a rota para TemasScreen
-        // '/teste': (context) => const 
+        '/quiz': (context) => const QuizScreen()
       },
     );
   }

@@ -48,12 +48,12 @@ class TemasScreen extends StatelessWidget {
                 mainAxisSpacing: 20, // Espaçamento vertical entre os itens
                 childAspectRatio: 9, // Ajusta a proporção dos itens
                 children: [
-                  _buildTemaButton('Logos'),
-                  _buildTemaButton('Sintaxe'),
-                  _buildTemaButton('Dart'),
-                  _buildTemaButton('Java'),
-                  _buildTemaButton('JS'),
-                  _buildTemaButton('Python'),
+                  _buildTemaButton(context, 'Logos de linguagens de progração'),
+                  _buildTemaButton(context, 'Sintaxe de programação'),
+                  _buildTemaButton(context, 'Dart'),
+                  _buildTemaButton(context, 'Java'),
+                  _buildTemaButton(context, 'JS'),
+                  _buildTemaButton(context, 'Python'),
                 ],
               ),
             ),
@@ -63,11 +63,13 @@ class TemasScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildTemaButton(String text) {
+  Widget _buildTemaButton(BuildContext context, String text) {
     return AspectRatio(
       aspectRatio: 2.5, // Ajusta a proporção do botão
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, '/quiz', arguments: text);
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xFF6A0DAD), // Cor roxa
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),

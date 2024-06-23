@@ -1,8 +1,8 @@
 // menu.dart
 import 'package:flutter/material.dart';
 
-class QuizScreen extends StatelessWidget {
-  const QuizScreen({super.key});
+class Menu extends StatelessWidget {
+  const Menu({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +70,7 @@ class QuizScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 15),
               ),
               onPressed: () {
-                Navigator.pushNamed(context, '/teste');
+                Navigator.pushNamed(context, '/quiz', arguments: 'Programação');
               },
               child: const Text(
                 'Jogo Rápido',

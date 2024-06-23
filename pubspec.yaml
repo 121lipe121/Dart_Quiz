@@ -24,7 +24,7 @@ environment:
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
 # consider running `flutter pub upgrade --major-versions`. Alternatively,
-# dependencies can be manually updated by changing the version numbers below to
+# depeflutter --versionndencies can be manually updated by changing the version numbers below to
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
@@ -39,6 +39,8 @@ dependencies:
   firebase_auth: ^4.20.0
   firebase_core: ^2.32.0
   http: ^1.2.1
+  google_generative_ai: ^0.4.3
+  flutter_gemini: ^2.0.4
 
 dev_dependencies:
   flutter_test:
