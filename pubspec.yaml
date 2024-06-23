@@ -42,6 +42,7 @@ dependencies:
   google_generative_ai: ^0.4.3
   flutter_gemini: ^2.0.4
 
+  flutter_animate: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

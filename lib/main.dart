@@ -1,6 +1,7 @@
 // main.dart
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'firebase_options.dart';
 import 'menu.dart'; // Importando o arquivo menu.dart
 import 'temas.dart'; // Importando o arquivo temas.dart
@@ -8,6 +9,7 @@ import 'quiz.dart';
 import 'package:flutter_gemini/flutter_gemini.dart'; // Importando o pacote flutter_gemini
 
 void main() async {
+  Animate.restartOnHotReload = true;
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,

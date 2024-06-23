@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class TemasScreen extends StatelessWidget {
   const TemasScreen({super.key});
@@ -48,12 +49,30 @@ class TemasScreen extends StatelessWidget {
                 mainAxisSpacing: 20, // Espaçamento vertical entre os itens
                 childAspectRatio: 9, // Ajusta a proporção dos itens
                 children: [
-                  _buildTemaButton(context, 'Logos de linguagens de progração'),
-                  _buildTemaButton(context, 'Sintaxe de programação'),
-                  _buildTemaButton(context, 'Dart'),
-                  _buildTemaButton(context, 'Java'),
-                  _buildTemaButton(context, 'JS'),
-                  _buildTemaButton(context, 'Python'),
+                  _buildTemaButton(context, 'Logos de linguagens de progração').animate(
+                    onPlay: (controller) => controller.repeat(),
+                  )
+                      .shimmer(delay: 2000.ms, duration: 1000.ms),
+                  _buildTemaButton(context, 'Sintaxe de programação').animate(
+                    onPlay: (controller) => controller.repeat(),
+                  )
+                      .shimmer(delay: 2000.ms, duration: 1000.ms),
+                  _buildTemaButton(context, 'Dart').animate(
+                    onPlay: (controller) => controller.repeat(),
+                  )
+                      .shimmer(delay: 2000.ms, duration: 1000.ms),
+                  _buildTemaButton(context, 'Java').animate(
+                    onPlay: (controller) => controller.repeat(),
+                  )
+                      .shimmer(delay: 2000.ms, duration: 1000.ms),
+                  _buildTemaButton(context, 'JS').animate(
+                    onPlay: (controller) => controller.repeat(),
+                  )
+                      .shimmer(delay: 2000.ms, duration: 1000.ms),
+                  _buildTemaButton(context, 'Python').animate(
+                    onPlay: (controller) => controller.repeat(),
+                  )
+                      .shimmer(delay: 2000.ms, duration: 1000.ms),
                 ],
               ),
             ),

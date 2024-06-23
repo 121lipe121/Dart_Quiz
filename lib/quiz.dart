@@ -3,7 +3,7 @@ import 'package:flutter_gemini/flutter_gemini.dart';
 import 'dart:async';
 
 class QuizScreen extends StatefulWidget {
-  const QuizScreen({Key? key}) : super(key: key);
+  const QuizScreen({super.key});
 
   @override
   _QuizScreenState createState() => _QuizScreenState();
@@ -16,6 +16,7 @@ class _QuizScreenState extends State<QuizScreen> {
   int _timeLeft = 15; // Tempo restante em segundos
   Timer? _timer;
   double _progress = 1.0; // Progresso da barra de tempo
+  bool _isLoading = true; // Estado para carregamento
 
   @override
   void initState() {
@@ -40,7 +41,18 @@ class _QuizScreenState extends State<QuizScreen> {
     super.dispose();
   }
 
+  Color getColor(double value) {
+    if (value > 0.5) {
+      return Color.lerp(Colors.yellow, Colors.green, (value - 0.5) * 2)!;
+    } else {
+      return Color.lerp(Colors.red, Colors.yellow, value * 2)!;
+    }
+  }
+
   Future<void> _loadQuestion() async {
+    setState(() {
+      _isLoading = true;
+    });
     final gemini = Gemini.instance;
     try {
       final response = await gemini.text(
@@ -48,11 +60,13 @@ class _QuizScreenState extends State<QuizScreen> {
       );
       setState(() {
         question = response?.output?.replaceAll(RegExp(r'[*]'), '') ?? 'Erro ao carregar a pergunta';
+        _isLoading = false;
         _startTimer();
       });
     } catch (e) {
       setState(() {
         question = 'Erro ao carregar a pergunta';
+        _isLoading = false;
       });
       print(e);
     }
@@ -64,7 +78,7 @@ class _QuizScreenState extends State<QuizScreen> {
       _progress = 1.0;
     });
     _timer?.cancel();
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (_timeLeft > 0) {
         setState(() {
           _timeLeft--;
@@ -86,15 +100,15 @@ class _QuizScreenState extends State<QuizScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Tempo Esgotado'),
-        content: Text('O tempo para responder a pergunta esgotou.'),
+        title: const Text('Tempo Esgotado'),
+        content: const Text('O tempo para responder a pergunta esgotou.'),
         actions: [
           TextButton(
             onPressed: () {
               Navigator.of(context).pop();
               Navigator.of(context).pop();
             },
-            child: Text('Voltar ao menu'),
+            child: const Text('Voltar ao menu'),
           ),
         ],
       ),
@@ -162,7 +176,13 @@ class _QuizScreenState extends State<QuizScreen> {
         backgroundColor: const Color(0xFF002366),
         elevation: 0,
       ),
-      body: Padding(
+      body: _isLoading
+          ? const Center(
+              child: CircularProgressIndicator(
+                color: Colors.white,
+              ),
+            )
+          : Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -195,11 +215,11 @@ class _QuizScreenState extends State<QuizScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             LinearProgressIndicator(
               value: _progress,
               backgroundColor: Colors.grey[300],
-              valueColor: AlwaysStoppedAnimation<Color>(Color.fromARGB(255, 255, 0, 0)),
+              color: getColor(_progress),
             ),
             const SizedBox(height: 24),
             OptionButton(label: 'A.', onPressed: () => _checkAnswer('A')),
@@ -217,7 +237,7 @@ class OptionButton extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
 
-  const OptionButton({
+  const OptionButton({super.key, 
     required this.label,
     required this.onPressed,
   });

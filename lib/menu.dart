@@ -1,5 +1,6 @@
 // menu.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class Menu extends StatelessWidget {
   const Menu({super.key});
@@ -21,12 +22,18 @@ class Menu extends StatelessWidget {
                 Image.asset(
                   '../assets/images/js.png',
                   height: 50,
-                ),
+                ).animate(
+                  onPlay: (controller) => controller.repeat(),
+                )
+                    .shake(delay: 5500.ms),
                 const Spacer(flex: 2),
                 Image.asset(
                   '../assets/images/python.png',
                   height: 50,
-                ),
+                ).animate(
+                  onPlay: (controller) => controller.repeat(),
+                )
+                    .shake(delay: 5500.ms),
                 const Spacer(),
               ],
             ),
@@ -35,7 +42,12 @@ class Menu extends StatelessWidget {
             Image.asset(
               '../assets/images/logoquiz.png',
               height: 300,
-            ),
+            ).animate(
+              onPlay: (controller) => controller.repeat(),
+            )
+            .moveY(begin: -25, end: 15, curve: Curves.easeInOut, duration: 1800.ms)
+            .then()
+            .moveY(begin: 15, end: -25, curve: Curves.easeInOut),
             const SizedBox(height: 10),
             // Row inferior com imagens
             Row(
@@ -45,12 +57,18 @@ class Menu extends StatelessWidget {
                 Image.asset(
                   '../assets/images/c.png',
                   height: 50,
-                ),
+                ).animate(
+                  onPlay: (controller) => controller.repeat(),
+                )
+                    .shake(delay: 5500.ms),
                 const Spacer(flex: 2),
                 Image.asset(
                   '../assets/images/dart.png',
                   height: 50,
-                ),
+                ).animate(
+                  onPlay: (controller) => controller.repeat(),
+                )
+                .shake(delay: 5500.ms),
                 const Spacer(),
               ],
             ),
@@ -62,7 +80,10 @@ class Menu extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
-            ),
+            ).animate(
+              onPlay: (controller) => controller.repeat(),
+            )
+            .shimmer(delay: 5000.ms, duration: 1000.ms),
             const SizedBox(height: 50),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
