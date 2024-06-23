@@ -12,7 +12,7 @@ class TemasScreen extends StatelessWidget {
         backgroundColor: const Color.fromARGB(255, 164, 164, 255), // Cor de fundo do AppBar igual ao fundo
         elevation: 0, // Remove a sombra do AppBar
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.cyan), // Ícone de seta para voltar
+          icon: const Icon(Icons.arrow_back, color: Color.fromARGB(255, 0, 0, 0)), // Ícone de seta para voltar
           onPressed: () {
             Navigator.of(context).pop();
           },
