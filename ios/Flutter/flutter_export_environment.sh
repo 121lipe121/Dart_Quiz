@@ -1,7 +1,7 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=C:\Users\lipec\flutter"
-export "FLUTTER_APPLICATION_PATH=C:\Dart\Dart_Quiz"
+export "FLUTTER_ROOT=C:\Users\migma\flutter"
+export "FLUTTER_APPLICATION_PATH=C:\Users\migma\Documents\Dart_Quiz"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_TARGET=lib\main.dart"
 export "FLUTTER_BUILD_DIR=build"

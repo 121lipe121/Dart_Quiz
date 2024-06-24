@@ -164,6 +164,7 @@ class _QuizScreenState extends State<QuizScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: const Color(0xFF002366),
       appBar: AppBar(
@@ -185,7 +186,8 @@ class _QuizScreenState extends State<QuizScreen> {
           : Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Center(
               child: Text(
@@ -204,7 +206,7 @@ class _QuizScreenState extends State<QuizScreen> {
                 fontSize: 20,
                 color: Color.fromARGB(255, 255, 255, 255),
               ),
-            ), 
+            ),
             const SizedBox(height: 24),
             Center(
               child: Text(
@@ -237,15 +239,17 @@ class OptionButton extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
 
-  const OptionButton({super.key, 
+  const OptionButton({super.key,
     required this.label,
     required this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.1, vertical: 1),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           foregroundColor: Colors.black,

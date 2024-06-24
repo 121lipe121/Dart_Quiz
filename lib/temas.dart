@@ -6,6 +6,8 @@ class TemasScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 164, 164, 255), // Cor de fundo azul escuro
       appBar: AppBar(
@@ -21,14 +23,14 @@ class TemasScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF6A0DAD), // Cor roxa
-                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.2, vertical: 15),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
                 ),
@@ -44,7 +46,7 @@ class TemasScreen extends StatelessWidget {
             const SizedBox(height: 30),
             Expanded(
               child: GridView.count(
-                crossAxisCount: 2, // Define duas colunas
+                crossAxisCount: 1, // Define duas colunas
                 crossAxisSpacing: 20, // Espaçamento horizontal entre os itens
                 mainAxisSpacing: 20, // Espaçamento vertical entre os itens
                 childAspectRatio: 9, // Ajusta a proporção dos itens
